@@ -1,0 +1,56 @@
+{
+  "name": "motifiables",
+  "version": "0.1.0",
+  "source": "src/index.ts",
+  "react-native": "src/index.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build:lib": "bob build",
+    "lint:fix": "ts-standard --fix",
+    "lint": "tsc  --noEmit && ts-standard",
+    "test": "yarn lint && jest",
+    "prepare": "bob build"
+  },
+  "peerDependencies": {
+    "moti": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-reanimated": "*"
+  },
+  "devDependencies": {
+    "@types/react": "~17.0.21",
+    "@types/react-native": "~0.64.12",
+    "jest": "^27.5.1",
+    "jest-expo": "^44.0.1",
+    "moti": "^0.17.1",
+    "react": "17.0.1",
+    "react-native": "0.64.3",
+    "react-native-builder-bob": "^0.18.2",
+    "react-native-reanimated": "~2.3.1",
+    "ts-standard": "^11.0.0",
+    "typescript": "~4.3.5"
+  },
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
+}

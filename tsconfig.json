@@ -22,5 +22,5 @@
     "target": "esnext",
     
   },
-  "exclude": ["Examples", "node_modules"]
+  "exclude": ["Examples", "node_modules", "**/*/__tests__/**/*"]
 }

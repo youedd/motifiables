@@ -1,6 +1,16 @@
-import { AnimationDefinition } from '../types'
+import { MotifiableDefinition } from '../types'
 
-export const bounceOut: AnimationDefinition = {
+declare global {
+  interface Motifiables {
+    bounceOut: MotifiableDefinition
+    bounceOutUp: MotifiableDefinition
+    bounceOutDown: MotifiableDefinition
+    bounceOutRight: MotifiableDefinition
+    bounceOutLeft: MotifiableDefinition
+  }
+}
+
+export const bounceOut: MotifiableDefinition = {
   0: {
     opacity: 1,
     scale: 1
@@ -21,7 +31,7 @@ export const bounceOut: AnimationDefinition = {
   }
 }
 
-export const bounceOutUp: AnimationDefinition = {
+export const bounceOutUp: MotifiableDefinition = {
   0: {
     opacity: 1,
     translateY: 0
@@ -45,7 +55,7 @@ export const bounceOutUp: AnimationDefinition = {
   }
 }
 
-export const bounceOutDown: AnimationDefinition = {
+export const bounceOutDown: MotifiableDefinition = {
   0: {
     opacity: 1,
     translateY: 0
@@ -69,7 +79,7 @@ export const bounceOutDown: AnimationDefinition = {
   }
 }
 
-export const bounceOutRight: AnimationDefinition = {
+export const bounceOutRight: MotifiableDefinition = {
   0: {
     opacity: 1,
     translateX: 0
@@ -93,7 +103,7 @@ export const bounceOutRight: AnimationDefinition = {
   }
 }
 
-export const bounceOutLeft: AnimationDefinition = {
+export const bounceOutLeft: MotifiableDefinition = {
   0: {
     opacity: 1,
     translateX: 0

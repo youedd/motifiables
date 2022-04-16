@@ -1,6 +1,21 @@
-import { AnimationDefinition } from '../types'
+import { MotifiableDefinition } from '../types'
 
-export const bounce: AnimationDefinition = {
+declare global {
+  interface Motifaibles {
+    bounce: MotifiableDefinition
+    flash: MotifiableDefinition
+    jello: MotifiableDefinition
+    pulse: MotifiableDefinition
+    rotate: MotifiableDefinition
+    shake: MotifiableDefinition
+    swing: MotifiableDefinition
+    rubberBand: MotifiableDefinition
+    tada: MotifiableDefinition
+    wobble: MotifiableDefinition
+  }
+}
+
+export const bounce: MotifiableDefinition = {
   0: {
     translateY: 0
   },
@@ -30,7 +45,7 @@ export const bounce: AnimationDefinition = {
   }
 }
 
-export const flash: AnimationDefinition = {
+export const flash: MotifiableDefinition = {
   0: {
     opacity: 1
   },
@@ -48,7 +63,7 @@ export const flash: AnimationDefinition = {
   }
 }
 
-export const jello: AnimationDefinition = {
+export const jello: MotifiableDefinition = {
   0: {
     skewX: '0deg',
     skewY: '0deg'
@@ -91,7 +106,7 @@ export const jello: AnimationDefinition = {
   }
 }
 
-export const pulse: AnimationDefinition = {
+export const pulse: MotifiableDefinition = {
   0: {
     scale: 1
   },
@@ -103,7 +118,7 @@ export const pulse: AnimationDefinition = {
   }
 }
 
-export const rotate: AnimationDefinition = {
+export const rotate: MotifiableDefinition = {
   0: {
     rotate: '0deg'
   },
@@ -121,7 +136,7 @@ export const rotate: AnimationDefinition = {
   }
 }
 
-export const shake: AnimationDefinition = {
+export const shake: MotifiableDefinition = {
   0: {
     translateX: 0
   },
@@ -157,7 +172,7 @@ export const shake: AnimationDefinition = {
   }
 }
 
-export const swing: AnimationDefinition = {
+export const swing: MotifiableDefinition = {
   0: {
     rotate: '0deg'
   },
@@ -178,7 +193,7 @@ export const swing: AnimationDefinition = {
   }
 }
 
-export const rubberBand: AnimationDefinition = {
+export const rubberBand: MotifiableDefinition = {
   0: {
     scaleX: 1,
     scaleY: 1
@@ -209,7 +224,7 @@ export const rubberBand: AnimationDefinition = {
   }
 }
 
-export const tada: AnimationDefinition = {
+export const tada: MotifiableDefinition = {
   0: {
     scale: 1,
     rotate: '0deg'
@@ -251,7 +266,7 @@ export const tada: AnimationDefinition = {
   }
 }
 
-export const wobble: AnimationDefinition = {
+export const wobble: MotifiableDefinition = {
   0: {
     translateX: 0,
     rotate: '0deg'

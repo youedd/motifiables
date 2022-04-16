@@ -1,9 +1,18 @@
-import { AnimationDefinition } from '../types'
+import { MotifiableDefinition } from '../types'
+
+declare global {
+  interface Motifiables {
+    slideOutDown: MotifiableDefinition
+    slideOutUp: MotifiableDefinition
+    slideOutLeft: MotifiableDefinition
+    slideOutRight: MotifiableDefinition
+  }
+}
 
 function makeSlideOutTranslation (
   translationType: 'translateX' | 'translateY',
   fromValue: number
-): AnimationDefinition {
+): MotifiableDefinition {
   return {
     from: {
       [translationType]: 0

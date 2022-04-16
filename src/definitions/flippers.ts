@@ -1,7 +1,16 @@
 import { Easing } from 'react-native-reanimated'
-import { AnimationDefinition } from '../types'
+import { MotifiableDefinition } from '../types'
 
-export const flipInX: AnimationDefinition = {
+declare global {
+  interface Motifiables {
+    flipInX: MotifiableDefinition
+    flipInY: MotifiableDefinition
+    flipOutX: MotifiableDefinition
+    flipOutY: MotifiableDefinition
+  }
+}
+
+export const flipInX: MotifiableDefinition = {
   easing: Easing.in(Easing.ease),
   style: {
     backfaceVisibility: 'visible',
@@ -31,7 +40,7 @@ export const flipInX: AnimationDefinition = {
   }
 }
 
-export const flipInY: AnimationDefinition = {
+export const flipInY: MotifiableDefinition = {
   easing: Easing.in(Easing.ease),
   style: {
     backfaceVisibility: 'visible',
@@ -57,7 +66,7 @@ export const flipInY: AnimationDefinition = {
   }
 }
 
-export const flipOutX: AnimationDefinition = {
+export const flipOutX: MotifiableDefinition = {
   style: {
     backfaceVisibility: 'visible',
     transform: [{ perspective: 400 }]
@@ -76,7 +85,7 @@ export const flipOutX: AnimationDefinition = {
   }
 }
 
-export const flipOutY: AnimationDefinition = {
+export const flipOutY: MotifiableDefinition = {
   style: {
     backfaceVisibility: 'visible',
     transform: [{ perspective: 400 }]

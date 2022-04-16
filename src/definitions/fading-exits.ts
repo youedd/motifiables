@@ -1,9 +1,23 @@
-import { AnimationDefinition } from '../types'
+import { MotifiableDefinition } from '../types'
+
+declare global {
+  interface Motifiables {
+    fadeOut: MotifiableDefinition
+    fadeOutDown: MotifiableDefinition
+    fadeOutUp: MotifiableDefinition
+    fadeOutLeft: MotifiableDefinition
+    fadeOutRight: MotifiableDefinition
+    fadeOutDownBig: MotifiableDefinition
+    fadeOutUpBig: MotifiableDefinition
+    fadeOutLeftBig: MotifiableDefinition
+    fadeOutRightBig: MotifiableDefinition
+  }
+}
 
 function makeFadeOutTranslation (
   translationType: 'translateX' | 'translateY',
   toValue: number
-): AnimationDefinition {
+): MotifiableDefinition {
   return {
     from: {
       opacity: 1,
@@ -16,7 +30,7 @@ function makeFadeOutTranslation (
   }
 }
 
-export const fadeOut: AnimationDefinition = {
+export const fadeOut: MotifiableDefinition = {
   from: {
     opacity: 1
   },

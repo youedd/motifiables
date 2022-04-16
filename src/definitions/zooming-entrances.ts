@@ -1,10 +1,20 @@
 import { Easing } from 'react-native-reanimated'
-import { AnimationDefinition } from '../types'
+import { MotifiableDefinition } from '../types'
+
+declare global {
+  interface Motifiables {
+    zoomIn: MotifiableDefinition
+    zoomInDown: MotifiableDefinition
+    zoomInUp: MotifiableDefinition
+    zoomInLeft: MotifiableDefinition
+    zoomInRight: MotifiableDefinition
+  }
+}
 
 function makeZoomInTranslation (
   translationType: 'translateX' | 'translateY',
   pivotPoint: number
-): AnimationDefinition {
+): MotifiableDefinition {
   const modifier = Math.min(1, Math.max(-1, pivotPoint))
   return {
     easing: Easing.bezier(0.175, 0.885, 0.32, 1),
@@ -25,7 +35,7 @@ function makeZoomInTranslation (
   }
 }
 
-export const zoomIn: AnimationDefinition = {
+export const zoomIn: MotifiableDefinition = {
   from: {
     opacity: 0,
     scale: 0.3

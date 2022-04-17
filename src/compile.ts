@@ -75,6 +75,10 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
 const cache = new Map<MotifiableDefinition, MotifiableBuilder>()
 
 export const compileAnimation = (definition: MotifiableDefinition): MotifiableBuilder => {
+  if (definition == null) {
+    throw new Error('Animation definitions must be defined')
+  }
+
   const cachedBuilder = cache.get(definition)
 
   if (cachedBuilder != null) {

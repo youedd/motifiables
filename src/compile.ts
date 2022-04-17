@@ -1,27 +1,8 @@
-import { MotifiableDefinition, MotifiableBuilder, StyleValues, MotifiableProps } from './types'
-import { compareNumbers, getKeyframesStylesProperties, getKeyframeStyles, getKeyframeStylesProperties, notNull, parsePosition } from './utils'
+import * as Keyframe from './keyframe'
+import { MotifiableDefinition, MotifiableBuilder, MotifiableProps } from './types'
+import { compareNumbers, notNull, parsePosition } from './utils'
 
 const DEFAULT_DURATION = 1000
-
-const getKeyframeSequenceItems = (
-  definition: MotifiableDefinition,
-  keyframe: number,
-  previousKeyframe: number): Partial<Record<keyof StyleValues, Record<string, any>>> => {
-  const keyframeStyles = getKeyframeStyles(definition)(keyframe)
-
-  const properties = getKeyframeStylesProperties(keyframeStyles)
-
-  return properties.reduce((acc, property) => {
-    return {
-      ...acc,
-      [property]: {
-        value: keyframeStyles[property],
-        type: 'timing',
-        duration: keyframe - previousKeyframe
-      }
-    }
-  }, {})
-}
 
 const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
   const keyframes = Object.keys(definition)
@@ -34,10 +15,10 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
 
   keyframes.sort(compareNumbers)
 
-  const getDefinitionKeyframeStyles = getKeyframeStyles(definition)
+  const getDefinitionKeyframeStyles = Keyframe.getStyles(definition)
 
   const definitionKeyframesStyles = keyframes.map(getDefinitionKeyframeStyles)
-  const definitionProperties = getKeyframesStylesProperties(definitionKeyframesStyles)
+  const definitionProperties = Keyframe.getStylesProperties(definitionKeyframesStyles)
 
   const from = getDefinitionKeyframeStyles(0) as MotifiableProps['from']
 
@@ -45,7 +26,7 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
     const animate = keyframes
       .filter(keyframe => keyframe !== 0)
       .map((keyframe, i, filtredKeyframes) =>
-        getKeyframeSequenceItems(definition, keyframe, filtredKeyframes[i - 1] ?? 0)
+        Keyframe.getSequenceItems(definition, keyframe, filtredKeyframes[i - 1] ?? 0)
       )
       .reduce((acc, keyframeSequenceItems) => {
         definitionProperties.forEach(property => {

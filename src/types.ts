@@ -36,9 +36,18 @@ export type MotifiableBuilder = (
   config?: Omit<MotifiableConfig, 'name'>
 ) => MotifiableProps
 
-export interface UseMotifiableResult {
+export interface UseMotifiableReturn {
   animate: () => void
   resetInitialState: () => void
+  props: {
+    state: MotiProps<MotifiableStyle>['state']
+    transition: MotifiableTransition
+    style?: MotifiableStyle
+  }
+}
+
+export interface UseDynamicMotifiableReturn {
+  animateTo: (config: MotifiableConfig) => void
   props: {
     state: MotiProps<MotifiableStyle>['state']
     transition: MotifiableTransition

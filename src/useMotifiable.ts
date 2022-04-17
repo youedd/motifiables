@@ -2,9 +2,9 @@ import { useAnimationState } from 'moti'
 import React from 'react'
 import { compileAnimation } from './compile'
 import * as Definitions from './definitions'
-import { MotifiableConfig, UseMotifiableResult } from './types'
+import { MotifiableConfig, UseMotifiableReturn } from './types'
 
-export const useMotifiable = (config: MotifiableConfig): UseMotifiableResult => {
+export const useMotifiable = (config: MotifiableConfig): UseMotifiableReturn => {
   const { duration, delay, repeat, name } = config
   const props = React.useMemo(() => {
     const definition = Definitions[name]

@@ -1,6 +1,6 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
 import Animated from 'react-native-reanimated'
-import { MotiAnimationProp, MotiFromProp, StyleValueWithReplacedTransforms } from 'moti'
+import { MotiAnimationProp, MotiFromProp, MotiProps, StyleValueWithReplacedTransforms } from 'moti'
 
 type KeyframePosition = number | 'from' | 'to'
 export type AnimateType = ViewStyle & ImageStyle & TextStyle
@@ -19,13 +19,29 @@ export interface MotifiableConfig {
   repeat?: number
 }
 
+export interface MotifiableTransition {
+  easing?: Animated.EasingFunction
+  repeat?: number
+}
+export type MotifiableStyle = ViewStyle | TextStyle | ImageStyle
+
 export interface MotifiableProps {
-  from: NonNullable<MotiFromProp<ViewStyle | TextStyle | ImageStyle>>
-  animate: NonNullable<MotiAnimationProp<ViewStyle | TextStyle | ImageStyle>>
-  transition: { easing?: Animated.EasingFunction, repeat?: number}
-  style?: ViewStyle | TextStyle | ImageStyle
+  from: NonNullable<MotiFromProp<MotifiableStyle>>
+  animate: NonNullable<MotiAnimationProp<MotifiableStyle>>
+  transition: MotifiableTransition
+  style?: MotifiableStyle
 }
 
 export type MotifiableBuilder = (
   config?: Omit<MotifiableConfig, 'name'>
 ) => MotifiableProps
+
+export interface UseMotifiableResult {
+  animate: () => void
+  resetInitialState: () => void
+  props: {
+    state: MotiProps<MotifiableStyle>['state']
+    transition: MotifiableTransition
+    style?: MotifiableStyle
+  }
+}

@@ -1,9 +1,10 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
 import Animated from 'react-native-reanimated'
-import { MotiAnimationProp, StyleValueWithReplacedTransforms } from 'moti'
+import { MotiAnimationProp, MotiFromProp, StyleValueWithReplacedTransforms } from 'moti'
 
 type KeyframePosition = number | 'from' | 'to'
-export type StyleValues = StyleValueWithReplacedTransforms< ViewStyle & ImageStyle & TextStyle>
+export type AnimateType = ViewStyle & ImageStyle & TextStyle
+export type StyleValues= StyleValueWithReplacedTransforms<AnimateType>
 export type MotifiableDefinition = Partial<Record<KeyframePosition, StyleValues> & {
   easing: Animated.EasingFunction
   style: ViewStyle
@@ -19,10 +20,10 @@ export interface MotifiableConfig {
 }
 
 export interface MotifiableProps {
-  from: StyleValues
-  animate: NonNullable<MotiAnimationProp<any>>
+  from: NonNullable<MotiFromProp<ViewStyle | TextStyle | ImageStyle>>
+  animate: NonNullable<MotiAnimationProp<ViewStyle | TextStyle | ImageStyle>>
   transition: { easing?: Animated.EasingFunction, repeat?: number}
-  style?: ViewStyle
+  style?: ViewStyle | TextStyle | ImageStyle
 }
 
 export type MotifiableBuilder = (

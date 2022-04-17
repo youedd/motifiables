@@ -1,4 +1,3 @@
-import { MotiAnimationProp } from 'moti'
 import { MotifiableDefinition, MotifiableBuilder, StyleValues, MotifiableProps } from './types'
 import { compareNumbers, getKeyframesStylesProperties, getKeyframeStyles, getKeyframeStylesProperties, notNull, parsePosition } from './utils'
 
@@ -40,7 +39,7 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
   const definitionKeyframesStyles = keyframes.map(getDefinitionKeyframeStyles)
   const definitionProperties = getKeyframesStylesProperties(definitionKeyframesStyles)
 
-  const from = getDefinitionKeyframeStyles(0)
+  const from = getDefinitionKeyframeStyles(0) as MotifiableProps['from']
 
   return (config) => {
     const animate = keyframes
@@ -67,7 +66,7 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
           acc[property] = sequenceItem
         })
         return acc
-      }, {}) as NonNullable<MotiAnimationProp<any>>
+      }, {}) as MotifiableProps['animate']
 
     const result: MotifiableProps = {
       from,

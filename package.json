@@ -48,8 +48,12 @@
     "targets": [
       "commonjs",
       "module",
-      "typescript"
-    ]
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]    ]
   },
   "eslintIgnore": [
     "node_modules/",

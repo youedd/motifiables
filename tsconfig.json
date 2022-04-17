@@ -19,8 +19,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext",
-    
-  },
-  "exclude": ["Examples", "node_modules", "**/*/__tests__/**/*"]
+    "target": "esnext", 
+  }
 }

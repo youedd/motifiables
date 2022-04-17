@@ -24,27 +24,29 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
 
   return (config) => {
     const animate = keyframes
-      .filter(keyframe => keyframe !== 0)
-      .map((keyframe, i, filtredKeyframes) =>
-        Keyframe.getSequenceItems(definition, keyframe, filtredKeyframes[i - 1] ?? 0)
+      .map((keyframe, i) =>
+        Keyframe.getSequenceItems(definition, keyframe, keyframes[i - 1] ?? 0)
       )
       .reduce((acc, keyframeSequenceItems) => {
         definitionProperties.forEach(property => {
           const sequenceItem = keyframeSequenceItems[property]
-          if (sequenceItem == null) return
 
-          sequenceItem.duration *= config?.duration ?? DEFAULT_DURATION
-
-          if (acc[property] != null) {
-            acc[property] = [acc[property], sequenceItem].flat()
+          if (sequenceItem == null) {
             return
           }
 
-          if (config?.delay != null) {
+          sequenceItem.duration *= config?.duration ?? DEFAULT_DURATION
+
+          if (acc[property] == null) {
+            acc[property] = [sequenceItem]
+            return
+          }
+
+          if (acc[property]?.length === 1 && config?.delay != null) {
             sequenceItem.delay = config.delay
           }
 
-          acc[property] = sequenceItem
+          acc[property] = [acc[property], sequenceItem].flat()
         })
         return acc
       }, {}) as MotifiableProps['animate']

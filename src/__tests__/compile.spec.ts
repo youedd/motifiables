@@ -31,7 +31,10 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: { value: 1, duration: 1000, type: 'timing' }
+        opacity: [
+          { value: 0, duration: 0, type: 'timing' },
+          { value: 1, duration: 1000, type: 'timing' }
+        ]
       },
       transition: {}
     })
@@ -54,7 +57,10 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: { value: 1, duration: 1000, type: 'timing' }
+        opacity: [
+          { value: 0, duration: 0, type: 'timing' },
+          { value: 1, duration: 1000, type: 'timing' }
+        ]
       },
       transition: {}
     })
@@ -94,8 +100,15 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: [{ value: 0.5, type: 'timing', duration: 1200 }, { value: 1, type: 'timing', duration: 800 }],
-        scale: { value: 1, type: 'timing', duration: 1200 }
+        opacity: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 0.5, type: 'timing', duration: 1200 },
+          { value: 1, type: 'timing', duration: 800 }
+        ],
+        scale: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 1, type: 'timing', duration: 1200 }
+        ]
       }
     })
   })
@@ -124,8 +137,15 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: [{ value: 0.5, type: 'timing', duration: 600 }, { value: 1, type: 'timing', duration: 400 }],
-        scale: { value: 1, type: 'timing', duration: 600 }
+        opacity: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 0.5, type: 'timing', duration: 600 },
+          { value: 1, type: 'timing', duration: 400 }
+        ],
+        scale: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 1, type: 'timing', duration: 600 }
+        ]
       }
     })
   })
@@ -154,8 +174,15 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: [{ value: 0.5, type: 'timing', duration: 600, delay: 500 }, { value: 1, type: 'timing', duration: 400 }],
-        scale: { value: 1, type: 'timing', duration: 600, delay: 500 }
+        opacity: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 0.5, type: 'timing', duration: 600, delay: 500 },
+          { value: 1, type: 'timing', duration: 400 }
+        ],
+        scale: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 1, type: 'timing', duration: 600, delay: 500 }
+        ]
       }
     })
   })
@@ -184,8 +211,15 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: [{ value: 0.5, type: 'timing', duration: 600 }, { value: 1, type: 'timing', duration: 400 }],
-        scale: { value: 1, type: 'timing', duration: 600 }
+        opacity: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 0.5, type: 'timing', duration: 600 },
+          { value: 1, type: 'timing', duration: 400 }
+        ],
+        scale: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 1, type: 'timing', duration: 600 }
+        ]
       }
     })
   })
@@ -203,8 +237,6 @@ describe('compileAnimation specs', () => {
     })
 
     const props = builder()
-
-    console.log(props.transition)
 
     expect(props.transition.easing).toBe(easing)
   })
@@ -233,7 +265,10 @@ describe('compileAnimation specs', () => {
         opacity: 0
       },
       animate: {
-        opacity: { value: 1, type: 'timing', duration: 1000 }
+        opacity: [
+          { value: 0, type: 'timing', duration: 0 },
+          { value: 1, type: 'timing', duration: 1000 }
+        ]
       }
     })
   })

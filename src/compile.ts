@@ -46,6 +46,10 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
             sequenceItem.delay = config.delay
           }
 
+          if (definition.easing != null) {
+            sequenceItem.easing = definition.easing
+          }
+
           acc[property] = [acc[property], sequenceItem].flat()
         })
         return acc
@@ -59,10 +63,6 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
 
     if (config?.repeat != null) {
       result.transition.repeat = config.repeat
-    }
-
-    if (definition.easing != null) {
-      result.transition.easing = definition.easing
     }
 
     if (definition.style != null) {

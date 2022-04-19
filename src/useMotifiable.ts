@@ -14,16 +14,13 @@ export const useMotifiable = (config: MotifiableConfig): UseMotifiableReturn => 
   }, [duration, delay, repeat, name])
 
   const state = useAnimationState<any>({
-    from: props.from,
-    to: props.animate
+    animation: props.animate
   })
 
-  const animate = React.useCallback(() => state.transitionTo('to'), [state])
-  const resetInitialState = React.useCallback(() => state.transitionTo('from'), [state])
+  const animate = React.useCallback(() => state.transitionTo('animation'), [state])
 
   return {
     animate,
-    resetInitialState,
     props: { state, style: props.style, transition: props.transition }
   }
 }

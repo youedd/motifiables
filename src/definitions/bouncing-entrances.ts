@@ -1,15 +1,5 @@
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifiables {
-    bounceIn: MotifiableDefinition
-    bounceInUp: MotifiableDefinition
-    bounceInDown: MotifiableDefinition
-    bounceInRight: MotifiableDefinition
-    bounceInLeft: MotifiableDefinition
-  }
-}
-
 export const bounceIn: MotifiableDefinition = {
   0: {
     opacity: 0,

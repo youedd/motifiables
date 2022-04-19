@@ -1,16 +1,6 @@
 import { Easing } from 'react-native-reanimated'
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifiables {
-    zoomIn: MotifiableDefinition
-    zoomInDown: MotifiableDefinition
-    zoomInUp: MotifiableDefinition
-    zoomInLeft: MotifiableDefinition
-    zoomInRight: MotifiableDefinition
-  }
-}
-
 function makeZoomInTranslation (
   translationType: 'translateX' | 'translateY',
   pivotPoint: number

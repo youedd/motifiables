@@ -9,3 +9,5 @@ export * from './sliding-entrances'
 export * from './sliding-exits'
 export * from './zooming-entrances'
 export * from './zooming-exits'
+
+export type { Motifaibles } from './types'

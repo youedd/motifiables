@@ -1,20 +1,5 @@
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifaibles {
-    bounce: MotifiableDefinition
-    flash: MotifiableDefinition
-    jello: MotifiableDefinition
-    pulse: MotifiableDefinition
-    rotate: MotifiableDefinition
-    shake: MotifiableDefinition
-    swing: MotifiableDefinition
-    rubberBand: MotifiableDefinition
-    tada: MotifiableDefinition
-    wobble: MotifiableDefinition
-  }
-}
-
 export const bounce: MotifiableDefinition = {
   0: {
     translateY: 0

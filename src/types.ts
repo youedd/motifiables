@@ -1,6 +1,7 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
 import Animated from 'react-native-reanimated'
 import { MotiAnimationProp, MotiFromProp, MotiProps, StyleValueWithReplacedTransforms } from 'moti'
+import { Motifaibles } from './definitions'
 
 type KeyframePosition = number | 'from' | 'to'
 export type AnimateType = ViewStyle & ImageStyle & TextStyle

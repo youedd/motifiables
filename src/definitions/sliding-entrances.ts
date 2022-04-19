@@ -1,14 +1,5 @@
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifiables {
-    slideInDown: MotifiableDefinition
-    slideInUp: MotifiableDefinition
-    slideInLeft: MotifiableDefinition
-    slideInRight: MotifiableDefinition
-  }
-}
-
 function makeSlideInTranslation (
   translationType: 'translateX' | 'translateY',
   fromValue: number

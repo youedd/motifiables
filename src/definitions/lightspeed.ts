@@ -1,13 +1,6 @@
 import { Easing } from 'react-native-reanimated'
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifiables {
-    lightSpeedIn: MotifiableDefinition
-    lightSpeedOut: MotifiableDefinition
-  }
-}
-
 export const lightSpeedIn: MotifiableDefinition = {
   easing: Easing.out(Easing.ease),
   0: {

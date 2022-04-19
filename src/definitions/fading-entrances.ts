@@ -1,19 +1,5 @@
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifiables {
-    fadeIn: MotifiableDefinition
-    fadeInDown: MotifiableDefinition
-    fadeInUp: MotifiableDefinition
-    fadeInLeft: MotifiableDefinition
-    fadeInRight: MotifiableDefinition
-    fadeInDownBig: MotifiableDefinition
-    fadeInUpBig: MotifiableDefinition
-    fadeInLeftBig: MotifiableDefinition
-    fadeInRightBig: MotifiableDefinition
-  }
-}
-
 function makeFadeInTranslation (
   translationType: 'translateX' | 'translateY',
   fromValue: number

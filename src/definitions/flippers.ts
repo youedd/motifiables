@@ -1,26 +1,11 @@
 import { Easing } from 'react-native-reanimated'
 import { MotifiableDefinition } from '../types'
 
-declare global {
-  interface Motifiables {
-    flipInX: MotifiableDefinition
-    flipInY: MotifiableDefinition
-    flipOutX: MotifiableDefinition
-    flipOutY: MotifiableDefinition
-  }
-}
-
 export const flipInX: MotifiableDefinition = {
   easing: Easing.in(Easing.ease),
-  style: {
-    backfaceVisibility: 'visible',
-    transform: [
-      {
-        perspective: 400
-      }
-    ]
-  },
   0: {
+    backfaceVisibility: 'visible',
+    perspective: 400,
     opacity: 0,
     rotateX: '90deg'
   },
@@ -42,11 +27,9 @@ export const flipInX: MotifiableDefinition = {
 
 export const flipInY: MotifiableDefinition = {
   easing: Easing.in(Easing.ease),
-  style: {
-    backfaceVisibility: 'visible',
-    transform: [{ perspective: 400 }]
-  },
   0: {
+    backfaceVisibility: 'visible',
+    perspective: 400,
     opacity: 0,
     rotateY: '90deg'
   },
@@ -67,11 +50,9 @@ export const flipInY: MotifiableDefinition = {
 }
 
 export const flipOutX: MotifiableDefinition = {
-  style: {
-    backfaceVisibility: 'visible',
-    transform: [{ perspective: 400 }]
-  },
   0: {
+    backfaceVisibility: 'visible',
+    perspective: 400,
     opacity: 1,
     rotateX: '0deg'
   },
@@ -86,11 +67,9 @@ export const flipOutX: MotifiableDefinition = {
 }
 
 export const flipOutY: MotifiableDefinition = {
-  style: {
-    backfaceVisibility: 'visible',
-    transform: [{ perspective: 400 }]
-  },
   0: {
+    backfaceVisibility: 'visible',
+    perspective: 400,
     opacity: 1,
     rotateY: '0deg'
   },

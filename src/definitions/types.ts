@@ -50,10 +50,10 @@ export interface Motifaibles {
   fadeOutRightBig: MotifiableDefinition
 
   // flippers
-  flipInX: MotifiableDefinition
-  flipInY: MotifiableDefinition
-  flipOutX: MotifiableDefinition
-  flipOutY: MotifiableDefinition
+  // flipInX: MotifiableDefinition
+  // flipInY: MotifiableDefinition
+  // flipOutX: MotifiableDefinition
+  // flipOutY: MotifiableDefinition
 
   // lightspeed
   lightSpeedIn: MotifiableDefinition

@@ -57,16 +57,11 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
 
     const result: MotifiableProps = {
       from,
-      animate,
-      transition: {}
+      animate
     }
 
     if (config?.repeat != null) {
-      result.transition.repeat = config.repeat
-    }
-
-    if (definition.style != null) {
-      result.style = definition.style
+      result.transition = { repeat: config.repeat }
     }
 
     return result

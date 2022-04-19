@@ -3,9 +3,13 @@ import { MotifiableDefinition } from '../types'
 
 export const flipInX: MotifiableDefinition = {
   easing: Easing.in(Easing.ease),
-  0: {
+  style: {
     backfaceVisibility: 'visible',
-    perspective: 400,
+    transform: [
+      { perspective: 400 }
+    ]
+  },
+  0: {
     opacity: 0,
     rotateX: '90deg'
   },
@@ -27,9 +31,13 @@ export const flipInX: MotifiableDefinition = {
 
 export const flipInY: MotifiableDefinition = {
   easing: Easing.in(Easing.ease),
-  0: {
+  style: {
     backfaceVisibility: 'visible',
-    perspective: 400,
+    transform: [
+      { perspective: 400 }
+    ]
+  },
+  0: {
     opacity: 0,
     rotateY: '90deg'
   },
@@ -50,9 +58,13 @@ export const flipInY: MotifiableDefinition = {
 }
 
 export const flipOutX: MotifiableDefinition = {
-  0: {
+  style: {
     backfaceVisibility: 'visible',
-    perspective: 400,
+    transform: [
+      { perspective: 400 }
+    ]
+  },
+  0: {
     opacity: 1,
     rotateX: '0deg'
   },
@@ -67,9 +79,13 @@ export const flipOutX: MotifiableDefinition = {
 }
 
 export const flipOutY: MotifiableDefinition = {
-  0: {
+  style: {
     backfaceVisibility: 'visible',
-    perspective: 400,
+    transform: [
+      { perspective: 400 }
+    ]
+  },
+  0: {
     opacity: 1,
     rotateY: '0deg'
   },

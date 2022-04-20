@@ -55,8 +55,11 @@
         }
       ]    ]
   },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ]
+  "ts-standard": {
+    "ignore": [
+      "lib",
+      "src/**/*.js",
+      "Examples/**/*.js"
+    ]
+  }
 }

@@ -68,7 +68,6 @@ describe('compileAnimation specs', () => {
 
   it('should throw if only one keyframe is defined', () => {
     expect(() => compileAnimation({
-      style: {},
       from: {
         opacity: 1
       }
@@ -238,38 +237,17 @@ describe('compileAnimation specs', () => {
 
     const props = builder()
 
-    expect(props.transition.easing).toBe(easing)
-  })
-
-  it('should support custom styles', () => {
-    const builder = compileAnimation({
-      style: {
-        backgroundColor: 'red'
-      },
-      0: {
-        opacity: 0
-      },
-      1: {
-        opacity: 1
-      }
-    })
-
-    const props = builder()
-
-    expect(props).toEqual({
-      style: {
-        backgroundColor: 'red'
-      },
-      transition: {},
+    expect(props).toBe({
       from: {
         opacity: 0
       },
       animate: {
         opacity: [
-          { value: 0, type: 'timing', duration: 0 },
-          { value: 1, type: 'timing', duration: 1000 }
+          { value: 0, duration: 0, type: 'timing' },
+          { value: 1, duration: 1000, type: 'timing' }
         ]
-      }
+      },
+      transition: {}
     })
   })
 

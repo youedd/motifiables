@@ -21,6 +21,6 @@ export const useMotifiable = (config: MotifiableConfig): UseMotifiableReturn => 
 
   return {
     animate,
-    props: { state, style: props.style, transition: props.transition }
+    props: { state, transition: props.transition }
   }
 }

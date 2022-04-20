@@ -6,7 +6,7 @@ import { useMotifiableProps } from './useMotifiableProps'
 export const createMotifiable = < C extends React.ComponentType<any>>(
   Component: C
 ): React.FC<React.ComponentProps<C> & MotifiableConfig> => {
-  const MotifedComponent = motify(Component)()
+  const MotifedComponent = motify(Component as React.FC)()
 
   const MotifiableComponent: React.FC<React.ComponentProps<C> & MotifiableConfig> = ({
     name,

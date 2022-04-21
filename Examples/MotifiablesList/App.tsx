@@ -9,7 +9,7 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Motifiable name='fadeInUpBig' duration={800}>
+      <Motifiable style={styles.container} name='fadeInUpBig' duration={800}>
         <Motifiable name='tada' delay={800} repeat={2}>
           <MotiImage
             {...props}

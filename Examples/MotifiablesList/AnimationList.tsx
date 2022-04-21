@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { Definitions, Motifiable, MotifiableKey } from '../../src'
+import { MotifiableDefinitions, Motifiable, MotifiableKey } from '../../src'
 import Item from './Item'
 
 export const COLORS = [
@@ -22,7 +22,7 @@ interface Props {
   onItemPress: (item: MotifiableKey) => void
 }
 const AnimationList: React.FC<Props> = ({ onItemPress }) => {
-  const keys = Object.keys(Definitions) as MotifiableKey[]
+  const keys = Object.keys(MotifiableDefinitions) as MotifiableKey[]
 
   return (
     <FlatList<MotifiableKey>

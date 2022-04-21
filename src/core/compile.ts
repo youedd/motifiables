@@ -1,5 +1,6 @@
+import { MotifiableDefinition } from '../definitions'
 import * as Keyframe from './keyframe'
-import { MotifiableDefinition, MotifiableBuilder, MotifiableProps } from './types'
+import { MotifiableBuilder, MotifiableProps } from './types'
 import { compareNumbers, notNull, parsePosition } from './utils'
 
 const DEFAULT_DURATION = 1000

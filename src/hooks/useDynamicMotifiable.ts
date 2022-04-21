@@ -1,20 +1,17 @@
 import { useDynamicAnimation } from 'moti'
 import React from 'react'
-import { compileAnimation } from '../compile'
-import * as Definitions from '../definitions'
-import {
-  MotifiableConfig,
-  UseDynamicMotifiableReturn
-} from '../types'
+import { compileAnimation, MotifiableConfig } from '../core'
+import { MotifiableDefinitions } from '../definitions'
+import { UseDynamicMotifiableHook } from './types'
 
-export const useDynamicMotifiable = (): UseDynamicMotifiableReturn => {
+export const useDynamicMotifiable: UseDynamicMotifiableHook = () => {
   const animation = useDynamicAnimation()
 
   const animateTo = React.useCallback(
     (config: MotifiableConfig) => {
       const { duration, delay, repeat, name } = config
 
-      const definition = Definitions[name]
+      const definition = MotifiableDefinitions[name]
       const builder = compileAnimation(definition)
 
       const props = builder({ duration, delay, repeat })

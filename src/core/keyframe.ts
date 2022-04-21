@@ -1,4 +1,4 @@
-import { MotifiableDefinition, StyleValues } from './types'
+import { MotifiableDefinition, StyleValues } from '../definitions'
 
 const _getStyles = (definition: MotifiableDefinition, position: number): StyleValues | undefined | null => {
   if (definition == null) {

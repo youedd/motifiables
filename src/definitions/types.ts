@@ -1,4 +1,17 @@
-import { MotifiableDefinition } from '../types'
+import { StyleValueWithReplacedTransforms } from 'moti'
+import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
+import Animated from 'react-native-reanimated'
+
+type KeyframePosition = number | 'from' | 'to'
+type AnimateType = ViewStyle & ImageStyle & TextStyle
+
+export type StyleValues= StyleValueWithReplacedTransforms<AnimateType>
+
+export type MotifiableDefinition = Partial<Record<KeyframePosition, StyleValues> & {
+  easing: Animated.EasingFunction
+}>
+
+export type MotifiableKey = keyof Motifaibles
 
 export interface Motifaibles {
   // attention-seekers

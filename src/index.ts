@@ -1,7 +1,5 @@
 export * as Definitions from './definitions'
-export * from './useMotifiableProps'
-export * from './useMotifiable'
-export * from './useDynamicMotifiable'
+export * from './hooks'
 export * from './components'
 export * from './createMotifiable'
 export * from './types'

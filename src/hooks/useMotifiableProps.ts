@@ -1,7 +1,7 @@
 import React from 'react'
-import { compileAnimation } from './compile'
-import * as Definitions from './definitions'
-import { MotifiableConfig, MotifiableProps } from './types'
+import { compileAnimation } from '../compile'
+import * as Definitions from '../definitions'
+import { MotifiableConfig, MotifiableProps } from '../types'
 
 export const useMotifiableProps = (config: MotifiableConfig): MotifiableProps => {
   const { duration, delay, repeat, name } = config

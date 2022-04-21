@@ -1,7 +1,7 @@
 import { motify } from 'moti'
 import React from 'react'
+import { useMotifiableProps } from './hooks'
 import { MotifiableConfig } from './types'
-import { useMotifiableProps } from './useMotifiableProps'
 
 export const createMotifiable = < C extends React.ComponentType<any>>(
   Component: C

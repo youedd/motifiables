@@ -1,11 +1,11 @@
 import { useDynamicAnimation } from 'moti'
 import React from 'react'
-import { compileAnimation } from './compile'
-import * as Definitions from './definitions'
+import { compileAnimation } from '../compile'
+import * as Definitions from '../definitions'
 import {
   MotifiableConfig,
   UseDynamicMotifiableReturn
-} from './types'
+} from '../types'
 
 export const useDynamicMotifiable = (): UseDynamicMotifiableReturn => {
   const animation = useDynamicAnimation()

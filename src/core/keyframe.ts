@@ -17,6 +17,24 @@ const _getStylesProperties = (keyframeStyles: StyleValues): Array<keyof StyleVal
   return Object.keys(keyframeStyles) as Array<keyof StyleValues>
 }
 
+const _getPropertyPreviousKeyframe = (
+  definition: MotifiableDefinition,
+  property: keyof StyleValues,
+  currentKeyframeIndex: number,
+  keyframes: number[]
+): number => {
+  for (let i = currentKeyframeIndex - 1; i > 0; i--) {
+    const keyframe = keyframes[i]
+    const styles = _getStyles(definition, keyframe)
+
+    if (styles?.[property] != null) {
+      return keyframe
+    }
+  }
+
+  return 0
+}
+
 export const getStyles = (definition: MotifiableDefinition) => (position: number): StyleValues => {
   const keyframe = _getStyles(definition, position)
 
@@ -31,13 +49,15 @@ export const getStylesProperties = (keyframesStyles: StyleValues[]): Array<keyof
 
 export const getSequenceItems = (
   definition: MotifiableDefinition,
-  keyframe: number,
-  previousKeyframe: number): Partial<Record<keyof StyleValues, Record<string, any>>> => {
+  keyframeIndex: number,
+  keyFrames: number[]): Partial<Record<keyof StyleValues, Record<string, any>>> => {
+  const keyframe = keyFrames[keyframeIndex]
   const keyframeStyles = getStyles(definition)(keyframe)
 
   const properties = _getStylesProperties(keyframeStyles)
 
   return properties.reduce((acc, property) => {
+    const previousKeyframe = _getPropertyPreviousKeyframe(definition, property, keyframeIndex, keyFrames)
     return {
       ...acc,
       [property]: {

@@ -39,6 +39,44 @@ it('should support from and to keys', () => {
   })
 })
 
+it('should calculate the animations sequences durations', () => {
+  const builder = compileAnimation({
+    0: {
+      opacity: 1,
+      scale: 0
+    },
+    0.5: {
+      opacity: 0
+    },
+    0.8: {},
+    1: {
+      opacity: 1,
+      scale: 1
+    }
+  })
+
+  const props = builder()
+
+  expect(props).toEqual({
+    from: {
+      opacity: 1,
+      scale: 0
+    },
+    animate: {
+      opacity: [
+        { value: 1, duration: 0, type: 'timing' },
+        { value: 0, duration: 500, type: 'timing' },
+        { value: 1, duration: 500, type: 'timing' }
+      ],
+      scale: [
+        { value: 0, duration: 0, type: 'timing' },
+        { value: 1, duration: 1000, type: 'timing' }
+      ]
+    }
+
+  })
+})
+
 it('should support fraction keyframes', () => {
   const builder = compileAnimation({
     0: {

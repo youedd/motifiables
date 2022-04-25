@@ -25,8 +25,8 @@ const compile = (definition: MotifiableDefinition): MotifiableBuilder => {
 
   return (config) => {
     const animate = keyframes
-      .map((keyframe, i) =>
-        Keyframe.getSequenceItems(definition, keyframe, keyframes[i - 1] ?? 0)
+      .map((_, keyframeIndex) =>
+        Keyframe.getSequenceItems(definition, keyframeIndex, keyframes)
       )
       .reduce((acc, keyframeSequenceItems) => {
         definitionProperties.forEach(property => {

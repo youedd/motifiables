@@ -72,7 +72,7 @@ it('should returns keyframe properties itemSequence', () => {
     }
   }
 
-  expect(Keyframe.getSequenceItems(definition, 1, 0)).toEqual({
+  expect(Keyframe.getSequenceItems(definition, 1, [0, 1])).toEqual({
     opacity: { value: 1, duration: 1, type: 'timing' },
     scale: { value: 2, duration: 1, type: 'timing' }
   })

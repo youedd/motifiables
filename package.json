@@ -59,7 +59,7 @@
     "ignore": [
       "lib",
       "src/**/*.js",
-      "Examples/**/*.js"
+      "Examples"
     ]
   }
 }

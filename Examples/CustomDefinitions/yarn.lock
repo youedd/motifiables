@@ -4020,6 +4020,11 @@ moti@^0.17.1:
     "@motify/components" "^0.17.1"
     "@motify/core" "^0.17.1"
 
+motifiables@*:
+  version "0.1.0-beta.1"
+  resolved "https://registry.yarnpkg.com/motifiables/-/motifiables-0.1.0-beta.1.tgz#f24513e260987d5562d578c7acacc55765fd485b"
+  integrity sha512-fqjIe2s0SF140CoP4UxpxGU29RxuEuyhbUXWLZX1rjkjTVZvowX1uVLsfDIGLMIeGSS8PdpiqAlRRyo1XY6ETw==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

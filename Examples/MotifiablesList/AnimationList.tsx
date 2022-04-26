@@ -1,7 +1,9 @@
+import { MotifiableDefinitions, Motifiable, MotifiableKey, MotifiableText } from 'motifiables'
 import React from 'react'
-import { FlatList } from 'react-native'
-import { MotifiableDefinitions, Motifiable, MotifiableKey } from '../../src'
+import { SectionList } from 'react-native'
+
 import Item from './Item'
+import sections from './sections'
 
 export const COLORS = [
   '#65b237', // green
@@ -25,14 +27,24 @@ const AnimationList: React.FC<Props> = ({ onItemPress }) => {
   const keys = Object.keys(MotifiableDefinitions) as MotifiableKey[]
 
   return (
-    <FlatList<MotifiableKey>
-      data={keys}
+    <SectionList<MotifiableKey,{title: string}>
+      sections={sections}
       keyExtractor={(item) => item}
+      stickySectionHeadersEnabled={false}
+      renderSectionHeader={({section: {title}})=> {
+        return <MotifiableText
+          name='fadeInRightBig'
+          delay={1800}
+          style={{ textAlign: 'center', fontSize: 24, padding: 20}}
+        >
+          {title}
+        </MotifiableText>
+      }}
       renderItem={({ item, index }) => {
         return (
           <Motifiable
             name='fadeIn'
-            delay={2000 + index * 100}
+            delay={2000+ index * 100}
             duration={500}
             style={{ opacity: 0 }}
           >

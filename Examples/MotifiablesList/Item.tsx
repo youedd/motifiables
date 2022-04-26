@@ -1,7 +1,7 @@
 import { MotiView } from 'moti'
+import { useMotifiable, MotifiableKey } from 'motifiables'
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
-import { useMotifiable, MotifiableKey } from '../../src'
 
 interface Props {
   name: MotifiableKey

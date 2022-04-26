@@ -1,7 +1,8 @@
-import React from 'react'
 import { MotiImage } from 'moti'
+import { Motifiable, useDynamicMotifiable } from 'motifiables'
+import React from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
-import { Motifiable, useDynamicMotifiable } from '../../src'
+
 import AnimationList from './AnimationList'
 
 const App: React.FC = () => {

@@ -1,5 +1,5 @@
 import { Easing } from 'react-native-reanimated'
-import { MotifiableDefinition, setMotifiableDefinition } from '../../src'
+import { MotifiableDefinition, setMotifiableDefinition } from 'motifiables'
 
 // override definition
 setMotifiableDefinition('rotate', {

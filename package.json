@@ -1,12 +1,23 @@
 {
   "name": "motifiables",
   "version": "0.1.0-beta.1",
+  "description": "A set of ready to use animations, powered by moti and Reanimated 2",
+  "repository": "https://github.com/youedd/motifiables",
+  "homepage": "https://github.com/youedd/motifiables",
+  "author": "Youssef EDDIBILI",
+  "keywords": [
+    "react-native",
+    "react-native-web",
+    "animations",
+    "transition",
+    "typescirpt"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "react-native": "src/index.ts",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/index.d.ts",
-  "license": "MIT",
   "scripts": {
     "build:lib": "bob build",
     "lint:fix": "ts-standard --fix",

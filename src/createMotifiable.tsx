@@ -3,7 +3,7 @@ import React from 'react'
 import { useMotifiableProps } from './hooks'
 import { MotifiableConfig } from './core/types'
 
-export const createMotifiable = < C extends React.ComponentType<any>>(
+export const createMotifiable = < C extends React.JSXElementConstructor<any>>(
   Component: C
 ): React.FC<React.ComponentProps<C> & MotifiableConfig> => {
   const MotifedComponent = motify(Component as React.FC)()

@@ -1,11 +1,11 @@
 {
   "name": "motifiables",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.0",
   "source": "src/index.ts",
   "react-native": "src/index.ts",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
-  "types": "lib/typescript/src/index.d.ts",
+  "types": "lib/typescript/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build:lib": "bob build",
